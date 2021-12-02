@@ -2,26 +2,22 @@
 ini_set('display_errors', 1);
 header('Content-Type: text/html; charset=utf-8');
 
-// The class is in the folder classes
 require 'classes/TPEpubCreator.php';
 
 $epub = new TPEpubCreator();
 
 // config
 $epub->temp_folder = 'temp/';
-$epub->epub_file = 'ebooks/wfirma_tabele2.epub';
+$epub->epub_file = 'ebooks/wfirma_tabele2_JPK.epub';
+$epub->css = file_get_contents('style/base.css');
+$epub->uuid = '';  // You can specify your own uuid
 
 // E-book configs
-$epub->title = 'wfirma jaro tabelki';
+$epub->title = 'wfirma jaro JPK';
 $epub->creator = 'Jarosław Wabich';
 $epub->language = 'pl';
 $epub->rights = 'Public Domain';
-$epub->publisher = 'http://jarek.pl/';
-
-// You can specity your own CSS
-$epub->css = file_get_contents('base.css');
-
-$epub->uuid = '';  // You can specify your own uuid
+$epub->publisher = 'https://jaroslawwabich.eu';
 
 // Add page from file (just the <body> content)
 // You have to remove doctype, head and body tags
@@ -33,15 +29,14 @@ $epub->AddPage( false, 'file.html', 'Artykuł 1' );
 // You must not use doctype, head and body tags (only XHTML body content)
 //$epub->AddPage( '<b>Test</b>', false, 'Title 2' );
 $epub->AddPage( false, 'file2.html', 'Artykuł 2' );
+$epub->AddPage( false, 'file3.html', 'Artykuł 3' );
 //$epub->AddPage( '<img src="images/banner.png" />', false, 'Title 3' );
 
 // Here the last param tells the class to download de image
 //$epub->AddPage( '<img src="images/3.jpg" />', false, 'Title 4', true );
-
 //$epub->AddPage( '<img src="images/4.jpg" />', false, 'Title 5' );
 
 $epub->AddImage( 'images/banner.png', false, false );
-
 
 // Add image cover
 // Make sure only one image is set to cover (last argument = true).

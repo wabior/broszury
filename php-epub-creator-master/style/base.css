@@ -3,13 +3,25 @@
     -webkit-box-sizing: border-box; 
     box-sizing: border-box; 
 }
+
+/*@page {*/
+/*    size: 21cm 29.7cm;*/
+/*    margin: 30mm 45mm 30mm 45mm;*/
+/*    !* change the margins as you want them to be. *!*/
+/*}*/
+
 body {
     margin: 0 auto !important;
     padding: 0;
     line-height: 1.5;
     text-align: justify;
-    width: 750px;
+    /*width: 750px;*/
 }
+article {
+    width: 720px;
+    border: 1px solid gray;
+}
+
 img {
     display: block !important;
     margin: 0.5em auto !important;
@@ -32,5 +44,5 @@ table td, table th {
     font-size: 80%;
     color: #444;
     text-align: left;
-    width: 700px;
+    /*width: 700px;*/
 }
